@@ -6,7 +6,7 @@ class AreaPage:
         self.driver = driver
 
     # LOCATORS
-    # Each locator class contains a tuple with the raw values of the format (locator, by=By.ID).
+    # Each locator class contains tuples of the format (by=By.ID, value).
     # Example usage:
     # locator = self.HousingLocators.HOUSING_HEADER
     # element = self.driver.find_element(*locator)
@@ -81,5 +81,6 @@ class AreaPage:
     def send_keys_search_craigslist(self, data):
         locator = self.GeneralLocators.SEARCH_CRAIGSLIST
         element = self.driver.find_element(*locator)
-        element.click()
         element.send_keys(data)
+        element.submit()
+        return SearchPage(self.driver)

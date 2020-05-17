@@ -6,6 +6,10 @@ class SearchPage:
         self.driver = driver
 
     # LOCATORS
+    # Each locator class contains tuples of the format (by=By.ID, value).
+    # Example usage:
+    # locator = self.HousingLocators.HOUSING_HEADER
+    # element = self.driver.find_element(*locator)
 
     class OptionsLocators:
         AREA_OPTIONS = (By.ID, "areaAbb")
