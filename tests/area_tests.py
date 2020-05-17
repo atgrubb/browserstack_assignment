@@ -29,5 +29,7 @@ class AreaTests(unittest.TestCase):
         result = search_page.verify_category_option_selected(SearchPage.CategoriesOptionsLocators.JOBS)
         assert result is True
 
-    def test_search_area(self):
-        self.area_page.send_keys_search_craigslist("cannondale bicycle")
+    def test_search_area_bicycle_for_sale(self):
+        search_page = self.area_page.send_keys_search_craigslist("cannondale bicycle")
+        result = search_page.verify_category_option_selected(SearchPage.CategoriesOptionsLocators.FOR_SALE)
+        assert result is True
