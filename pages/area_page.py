@@ -7,7 +7,7 @@ class AreaPage(WebDriver):
         super().__init__(driver)
         self.driver = driver
 
-    # locators
+    # LOCATORS
     _area_header = "//div[@class='regular-area']/h2[@class='area']"
 
     # housing locators
@@ -56,3 +56,40 @@ class AreaPage(WebDriver):
     _tv_film_video = "//a[@class='tfr']"
     _web_info_design = "//a[@class='web']"
     _writing_editing = "//a[@class='wri']"
+
+    # GETTERS
+    # housing getters
+    def get_housing_anchor(self):
+        return self.driver.find_element(By.XPATH, self._housing_header)
+
+    def get_apts_housing_anchor(self):
+        return self.driver.find_element(By.XPATH, self._apts_housing)
+
+    def get_housing_swap_anchor(self):
+        return self.driver.find_element(By.XPATH, self._housing_swap)
+
+    def get_housing_wanted_anchor(self):
+        return self.driver.find_element(By.XPATH, self._housing_wanted)
+
+    def get_office_commercial_anchor(self):
+        return self.driver.find_element(By.XPATH, self._office_commercial)
+
+    def get_parking_storage_anchor(self):
+        return self.driver.find_element(By.XPATH, self._parking_storage)
+
+    def get_real_estate_for_sale_anchor(self):
+        return self.driver.find_element(By.XPATH, self._real_estate_for_sale)
+
+    def get_rooms_shared_anchor(self):
+        return self.driver.find_element(By.XPATH, self._rooms_shared)
+
+    def get_rooms_wanted_anchor(self):
+        return self.driver.find_element(By.XPATH, self._rooms_wanted)
+
+    def get_sublets_temporary_anchor(self):
+        return self.driver.find_element(By.XPATH, self._sublets_temporary)
+
+    def get_vacation_rentals_anchor(self):
+        return self.driver.find_element(By.XPATH, self._vacation_rentals)
+
+    # ACTIONS
