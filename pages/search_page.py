@@ -45,9 +45,15 @@ class SearchPage:
     # ACTIONS
 
     def verify_category_option_selected(self, option_locator=CategoriesOptionsLocators.COMMUNITY):
+        # Get the categories drop down element
         category_locator = self.OptionsLocators.CATEGORIES_OPTIONS
         category_element = self.driver.find_element(*category_locator)
-        selected_option = Select(category_element).first_selected_option
-        option_element = self.driver.find_element(*option_locator)
-        print(selected_option.text + " should be equal to " + option_element.text)
-        return selected_option.text == option_element.text
+
+        # Get the currently selected option for the categories drop down
+        selected_option_element = Select(category_element).first_selected_option
+
+        # Get the element for the option with which this method was called i.e. the option we expect to be selected
+        expected_option_element = self.driver.find_element(*option_locator)
+
+        print(selected_option_element.text + " should be equal to " + expected_option_element.text)
+        return selected_option_element.text == expected_option_element.text
