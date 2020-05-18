@@ -74,5 +74,3 @@ The [test configuration file](https://github.com/atgrubb/browserstack_assignment
 * [Parse command line arguments](https://github.com/atgrubb/browserstack_assignment/blob/762205a537ef7eba925d66568680e7db6e207a46/tests/conftest.py#L67) when invoking `py.test`. In this project I'm parsing arguments that then we pass to `BrowserStack` as [desired_capabilities](https://github.com/atgrubb/browserstack_assignment/blob/762205a537ef7eba925d66568680e7db6e207a46/tests/conftest.py#L42).
 * Do one-time set up and yield the webdriver so we can set and then reuse the same webdriver instance from test to test.
 * Determine if the test is intended to run on `BrowserStack` or not and then have the execution flow proceed accordingly. In this project this is also done via parsing of command line arguments to `py.test`, specifically using the `--browser-stack-enabled True` option.
-
-##
