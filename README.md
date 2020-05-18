@@ -11,8 +11,8 @@ A selenium test suite written in python, triggered via github jenkins integratio
 ## CI/CD Tech Stack
 
 * [BrowserStack](https://www.browserstack.com/guide/parallel-testing-with-selenium) for executing tests on teh web in parallel across many browsers.
-* [jenkins](https://www.jenkins.io/)
-* [docker](https://www.docker.com/) for setting up the environment on jenkins for easy execution agnostic of system. 
+* [jenkins](https://www.jenkins.io/) that is running inside of docker.
+* [docker](https://www.docker.com/) for setting up the environment on jenkins for easy execution agnostic of system. This project is technically running a docker container for testing (python-chromedriver) inside a docker container running Jenkins.
 * [docker image](https://hub.docker.com/r/joyzoursky/python-chromedriver) for selenium, python and chrome driver.
 * [github project](https://github.com/atgrubb/browserstack_assignment)
 * [ngrok](https://ngrok.com/download) to expose our localhost jenkins publicly in order for the github webhook to be successful. See github webhook documentation [here](https://developer.github.com/webhooks/configuring/). **Important** need to expose port 8080, since that is the default port my jenkins is using.
