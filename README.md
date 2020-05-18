@@ -1,5 +1,5 @@
 # AutomateCraigslist
-A selenium test suite written in python, triggered via github jenkins integration and parallelized in BrowserStack.  
+A selenium test suite written in python, connected to jenkins and parallelized in BrowserStack. 
 
 ## Requirements
 
