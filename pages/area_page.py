@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from pages.search_page import SearchPage
 
+
 class AreaPage:
     def __init__(self, driver):
         self.driver = driver

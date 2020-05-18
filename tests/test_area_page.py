@@ -1,14 +1,26 @@
-from asyncio import sleep
-
 from selenium import webdriver
 from pages.area_page import AreaPage
 from pages.search_page import SearchPage
-import unittest
+import pytest
 
-class AreaTests(unittest.TestCase):
+
+class TestAreaPage:
     BASE_URL = "https://richmond.craigslist.org/"
     area_page = None
-    driver = None
+    '''
+    BROWSERSTACK_URL = 'https://alangrubb1:mqyCphmri491xmxqBxq3@hub-cloud.browserstack.com/wd/hub'
+    desired_capabilities = {
+        'os': 'OS X',
+        'os_version': 'Catalina',
+        'browser': 'Safari',
+        'browser_version': '13',
+        'name': "test ssl certs true",
+    }
+    driver = webdriver.Remote(
+        command_executor=BROWSERSTACK_URL,
+        desired_capabilities=desired_capabilities
+    )
+    '''
 
     def setUp(self):
         self.driver = webdriver.Chrome()
