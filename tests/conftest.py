@@ -24,16 +24,13 @@ def setUpClass(request, browser_stack_enabled, browser, browser_version, os, os_
             driver = webdriver.Firefox()
         elif str(browser).lower() == "chrome":
             chrome_options = webdriver.ChromeOptions()
-            chrome_options.add_argument('--no-sandbox')
-            chrome_options.add_argument('--headless')
-            chrome_options.add_argument('--disable-gpu')
             driver = webdriver.Chrome(options=chrome_options)
         elif str(browser).lower() == "safari":
             driver = webdriver.Safari()
         else:
             driver = webdriver.Chrome()
 
-        driver.maximize_window()
+        #driver.maximize_window()
 
     area_page = AreaPage(driver)
 
