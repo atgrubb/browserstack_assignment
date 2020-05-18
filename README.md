@@ -3,10 +3,13 @@ A selenium test suite written in python, triggered via github jenkins integratio
 
 ## Requirements
 
-* Write a Selenium test suite using any language/framework and trigger it from a Jenkins server.
-* BrowserStack (you will need to create a  [free trial](https://www.browserstack.com/users/sign_up) )
-* Contain 3 separate assertions
-* Run across 5 browsers in parallel
+- [x] Write a Selenium test suite using any language/framework and trigger it from a Jenkins server.
+- [x] BrowserStack (you will need to create a  [free trial](https://www.browserstack.com/users/sign_up) )
+- [x] Contain 3 separate assertions: [Assertion 1](https://github.com/atgrubb/browserstack_assignment/blob/b4da1230cd6fba87af65de79324d7e533b8ab9a3/tests/test_area_page.py#L24), [Assertion 2](https://github.com/atgrubb/browserstack_assignment/blob/b4da1230cd6fba87af65de79324d7e533b8ab9a3/tests/test_area_page.py#L29), [Assertion 3](https://github.com/atgrubb/browserstack_assignment/blob/b4da1230cd6fba87af65de79324d7e533b8ab9a3/tests/test_area_page.py#L38)
+
+*There are a few more assertions and tests in order to better demonstrate parallelization. The sleeps are also there for visualization purposes so you can more easily see how parallelization reduces the execution time of the test suite.*
+        
+- [x] Run across 5 browsers in parallel
 
 ## CI/CD Tech Stack
 
