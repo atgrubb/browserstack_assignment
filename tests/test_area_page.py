@@ -26,11 +26,29 @@ class TestAreaPage(unittest.TestCase):
     def test_click_jobs_header(self):
         search_page = self.area_page.click_jobs_locator(AreaPage.JobsLocators.JOBS_HEADER)
         result = search_page.verify_category_option_selected(SearchPage.CategoriesOptionsLocators.JOBS)
-        sleep(3)
         assert result is True
+        sleep(3)
+
+    def test_click_apts_housing(self):
+        search_page = self.area_page.click_housing_locator(AreaPage.HousingLocators.APTS_HOUSING)
+        category_result = search_page.verify_category_option_selected(SearchPage.CategoriesOptionsLocators.HOUSING)
+        assert category_result is True
+        subcategory_result = search_page.verify_housing_subcategory_option_selected(
+            SearchPage.HousingSubCategoriesLocators.APTS_HOUSING)
+        assert subcategory_result is True
+        sleep(3)
+
+    def test_click_housing_swap(self):
+        search_page = self.area_page.click_housing_locator(AreaPage.HousingLocators.HOUSING_SWAP)
+        category_result = search_page.verify_category_option_selected(SearchPage.CategoriesOptionsLocators.HOUSING)
+        assert category_result is True
+        subcategory_result = search_page.verify_housing_subcategory_option_selected(
+            SearchPage.HousingSubCategoriesLocators.HOUSING_SWAP)
+        assert subcategory_result is True
+        sleep(3)
 
     def test_search_area_bicycle_for_sale(self):
         search_page = self.area_page.send_keys_search_craigslist("cannondale bicycle")
         result = search_page.verify_category_option_selected(SearchPage.CategoriesOptionsLocators.FOR_SALE)
-        sleep(3)
         assert result is True
+        sleep(3)

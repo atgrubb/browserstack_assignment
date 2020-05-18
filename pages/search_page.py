@@ -30,7 +30,7 @@ class SearchPage:
     class HousingSubCategoriesLocators:
         ALL = (By.XPATH, "//select[@id='subcatAbb']/option[@value='hhh']")
         APTS_HOUSING = (By.XPATH, "//select[@id='subcatAbb']/option[@value='apa']")
-        HOUSING_SWAP = (By.XPATH, "//select[@id='subcatAbb']/option[@value='swp']]")
+        HOUSING_SWAP = (By.XPATH, "//select[@id='subcatAbb']/option[@value='swp']")
         OFFICE_COMMERCIAL = (By.XPATH, "//select[@id='subcatAbb']/option[@value='off']")
         PARKING_STORAGE = (By.XPATH, "//select[@id='subcatAbb']/option[@value='prk']")
         REAL_ESTATE_BY_BROKER = (By.XPATH, "//select[@id='subcatAbb']/option[@value='reb']")
@@ -52,6 +52,20 @@ class SearchPage:
 
         # Get the currently selected option for the categories drop down
         selected_option_element = Select(category_element).first_selected_option
+
+        # Get the element for the option with which this method was called i.e. the option we expect to be selected
+        expected_option_element = self.driver.find_element(*option_locator)
+
+        print(selected_option_element.text + " should be equal to " + expected_option_element.text)
+        return selected_option_element.text == expected_option_element.text
+
+    def verify_housing_subcategory_option_selected(self, option_locator=HousingSubCategoriesLocators.ALL):
+        # Get the categories drop down element
+        subcategory_locator = self.OptionsLocators.SUBCATEGORIES_OPTIONS
+        subcategory_element = self.driver.find_element(*subcategory_locator)
+
+        # Get the currently selected option for the categories drop down
+        selected_option_element = Select(subcategory_element).first_selected_option
 
         # Get the element for the option with which this method was called i.e. the option we expect to be selected
         expected_option_element = self.driver.find_element(*option_locator)
