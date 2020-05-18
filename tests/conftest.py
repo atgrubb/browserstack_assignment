@@ -23,7 +23,11 @@ def setUpClass(request, browser_stack_enabled, browser, browser_version, os, os_
         elif str(browser).lower() == "firefox":
             driver = webdriver.Firefox()
         elif str(browser).lower() == "chrome":
-            driver = webdriver.Chrome()
+            chrome_options = webdriver.ChromeOptions()
+            chrome_options.add_argument('--no-sandbox')
+            chrome_options.add_argument('--headless')
+            chrome_options.add_argument('--disable-gpu')
+            driver = webdriver.Chrome(chrome_options=chrome_options)
         elif str(browser).lower() == "safari":
             driver = webdriver.Safari()
         else:
@@ -66,7 +70,7 @@ def get_desired_capabilities(browser, browser_version, os, os_version, name):
 
 
 def pytest_addoption(parser):
-    parser.addoption("--browser-stack-Enabled", help="Execute tests on BrowserStack. Default set to 'False'.")
+    parser.addoption("--browser-stack-enabled", help="Execute tests on BrowserStack. Default set to 'False'.")
     parser.addoption("--browser", help="Browser within which to execute tests e.g. 'Safari'.")
     parser.addoption("--browser-version", help="Browser version to execute on e.g. '13'.")
     parser.addoption("--os", help="Operating system to execute on e.g. 'OS X'.")
@@ -76,7 +80,7 @@ def pytest_addoption(parser):
 
 @pytest.fixture(scope="session")
 def browser_stack_enabled(request):
-    return request.config.getoption("--browser-stack-Enabled")
+    return request.config.getoption("--browser-stack-enabled")
 
 
 @pytest.fixture(scope="session")
