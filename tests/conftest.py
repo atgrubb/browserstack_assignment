@@ -30,8 +30,6 @@ def setUpClass(request, browser_stack_enabled, browser, browser_version, os, os_
         else:
             driver = webdriver.Chrome()
 
-        #driver.maximize_window()
-
     area_page = AreaPage(driver)
 
     if request.cls is not None:
