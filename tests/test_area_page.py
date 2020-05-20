@@ -14,14 +14,14 @@ class TestAreaPage(unittest.TestCase):
         self.driver.get(base_url)
 
     @pytest.fixture(autouse=True)
-    def objectSetup(self, setUpClass):
+    def objectSetup(self):
         self.area_page = AreaPage(self.driver)
 
     def test_click_housing_header(self):
         search_page = self.area_page.click_housing_locator(AreaPage.HousingLocators.HOUSING_HEADER)
         result = search_page.verify_category_option_selected(SearchPage.CategoriesOptionsLocators.HOUSING)
-        sleep(3)
         assert result is True
+        sleep(3)
 
     def test_click_jobs_header(self):
         search_page = self.area_page.click_jobs_locator(AreaPage.JobsLocators.JOBS_HEADER)
