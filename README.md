@@ -22,7 +22,7 @@ A selenium test suite written in python, connected to jenkins and parallelized i
 
 ## Jenkins
 
-There are many articles out on the web for how to "hook up" Jenkins to a Github project but almost all of them stop short of a fully working solution when it comes to Jenkins *Pipelines*, in particular. For Pipelines, git polling for SCM is broken unless you do the following...
+There are many articles out on the web for how to "hook up" Jenkins to a Github project for buiding pushes to master or other branches of interest. Unfortunately, almost all of these articles stop short of a working solution when it comes to Jenkins *Pipelines*. For Pipelines, git polling for SCM is broken unless you do the following...
 
 The [Jenkinsfile](https://github.com/atgrubb/browserstack_assignment/blob/master/Jenkinsfile) in this project contains two crucial lines in order for the Jenkins pipeline (or multipath pipeline) to build when pushed (to master or whatever branches you specify). Additionaly, the first build for this pipeline must be done manually in order for the changes to be picked up and subsequent pushes to trigger git SCM polling. [See the comments in this helpful JIRA ticket for the Git plugin for Jenkins](https://issues.jenkins-ci.org/browse/JENKINS-35132).
 
