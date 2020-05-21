@@ -72,6 +72,11 @@ Hopefully it is easy to see: this test clicks the jobs header by supplying the `
 
 #### Configuration
 
+The [Jenkinsfile](https://github.com/atgrubb/browserstack_assignment/blob/master/Jenkinsfile) contains two crucial lines in order for the Jenkins pipeline (or multipath pipeline) to build when pushed (to master or whatever branches you specify). Additionaly, the first build for this pipeline must be done manually in order for the changes to be picked up and subsequent pushes to trigger git SCM polling. [See the comments in this helpful JIRA ticket for the Git plugin for Jenkins](https://issues.jenkins-ci.org/browse/JENKINS-35132).
+
+* [Crucial line 1](https://github.com/atgrubb/browserstack_assignment/blob/master/Jenkinsfile#L1)
+* [Crucial line 2](https://github.com/atgrubb/browserstack_assignment/blob/ac5be270070c69d148d55bd49b0f43655be07f75/Jenkinsfile#L4)
+
 The [test configuration file](https://github.com/atgrubb/browserstack_assignment/blob/master/tests/conftest.py) utilizes pytest and annotations to do lots of helpful and important stuff for us. Here are some of the notable things this config file does:
 
 * [Parse command line arguments](https://github.com/atgrubb/browserstack_assignment/blob/762205a537ef7eba925d66568680e7db6e207a46/tests/conftest.py#L67) when invoking `py.test`. In this project I'm parsing arguments that then we pass to `BrowserStack` as [desired_capabilities](https://github.com/atgrubb/browserstack_assignment/blob/762205a537ef7eba925d66568680e7db6e207a46/tests/conftest.py#L42).
