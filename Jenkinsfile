@@ -1,3 +1,5 @@
+properties([pipelineTriggers([githubPush()])])
+
 node {
     docker.image('joyzoursky/python-chromedriver').inside {
         sh 'pip install selenium'
