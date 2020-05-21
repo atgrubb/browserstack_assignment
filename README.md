@@ -18,7 +18,7 @@ A selenium test suite written in python, connected to jenkins and parallelized i
 * [docker](https://www.docker.com/) for setting up the environment on jenkins for easy execution agnostic of system. This project is technically running a docker container for testing (python-chromedriver) inside a docker container running Jenkins.
 * [docker image](https://hub.docker.com/r/joyzoursky/python-chromedriver) for selenium, python and chrome driver.
 * [github project](https://github.com/atgrubb/browserstack_assignment)
-* [webhook relay](https://webhookrelay.com/blog/2019/04/17/automated-github-pull-request-builds-on-jenkins/) to expose our localhost jenkins publicly in order for the github webhook to be successful. **Important** need to expose port 8080, since that is the default port my jenkins is using.
+* [webhook relay](https://webhookrelay.com/blog/2019/04/17/automated-github-pull-request-builds-on-jenkins/) to expose our localhost jenkins publicly in order for the github webhook to be successful. **Important** - you need to expose port 8080, since that is the default port my jenkins is using.
 
 ## Testing Tech Stack
 
