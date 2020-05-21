@@ -20,6 +20,15 @@ A selenium test suite written in python, connected to jenkins and parallelized i
 * [github project](https://github.com/atgrubb/browserstack_assignment)
 * [webhook relay](https://webhookrelay.com/blog/2019/04/17/automated-github-pull-request-builds-on-jenkins/) to expose our localhost jenkins publicly in order for the github webhook to be successful. **Important** - you need to expose port 8080, since that is the default port my jenkins is using.
 
+## Jenkins
+
+There are many articles out on the web for how to "hook up" Jenkins to a Github project but almost all of them stop short of a fully working solution when it comes to Jenkins *Pipelines*, in particular. For Pipelines, git polling for SCM is broken unless you do the following...
+
+The [Jenkinsfile](https://github.com/atgrubb/browserstack_assignment/blob/master/Jenkinsfile) in this project contains two crucial lines in order for the Jenkins pipeline (or multipath pipeline) to build when pushed (to master or whatever branches you specify). Additionaly, the first build for this pipeline must be done manually in order for the changes to be picked up and subsequent pushes to trigger git SCM polling. [See the comments in this helpful JIRA ticket for the Git plugin for Jenkins](https://issues.jenkins-ci.org/browse/JENKINS-35132).
+
+* [Crucial line 1](https://github.com/atgrubb/browserstack_assignment/blob/master/Jenkinsfile#L1)
+* [Crucial line 2](https://github.com/atgrubb/browserstack_assignment/blob/ac5be270070c69d148d55bd49b0f43655be07f75/Jenkinsfile#L4)
+
 ## Testing Tech Stack
 
 * [selenium for python](https://pypi.org/project/selenium/)
@@ -71,11 +80,6 @@ def test_click_jobs_header(self):
 Hopefully it is easy to see: this test clicks the jobs header by supplying the `JOBS_HEADER` locator from `AreaPage` to the `AreaPage` function `click_jobs_locator()`. Since clicking the link will return an instance of `SearchPage`, we set the result of `click_jobs_locator()` to a variable. Then we use `search_page` to verify that we have arrived on the `SearchPage` with the correct category selected, in this case `Jobs`. And that's it - a three line, easy to understand test!
 
 #### Configuration
-
-The [Jenkinsfile](https://github.com/atgrubb/browserstack_assignment/blob/master/Jenkinsfile) contains two crucial lines in order for the Jenkins pipeline (or multipath pipeline) to build when pushed (to master or whatever branches you specify). Additionaly, the first build for this pipeline must be done manually in order for the changes to be picked up and subsequent pushes to trigger git SCM polling. [See the comments in this helpful JIRA ticket for the Git plugin for Jenkins](https://issues.jenkins-ci.org/browse/JENKINS-35132).
-
-* [Crucial line 1](https://github.com/atgrubb/browserstack_assignment/blob/master/Jenkinsfile#L1)
-* [Crucial line 2](https://github.com/atgrubb/browserstack_assignment/blob/ac5be270070c69d148d55bd49b0f43655be07f75/Jenkinsfile#L4)
 
 The [test configuration file](https://github.com/atgrubb/browserstack_assignment/blob/master/tests/conftest.py) utilizes pytest and annotations to do lots of helpful and important stuff for us. Here are some of the notable things this config file does:
 
