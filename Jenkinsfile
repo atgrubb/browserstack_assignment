@@ -1,6 +1,7 @@
 properties([pipelineTriggers([githubPush()])])
 
 node {
+    git url: 'https://github.com/atgrubb/browserstack_assignment.git', branch: 'master'
     docker.image('joyzoursky/python-chromedriver').inside {
         sh 'pip install selenium'
         sh 'pip install pytest'
